@@ -93,7 +93,7 @@ class siMLPe(nn.Module):
             motion_feats = self.arr1(motion_feats)  
             motion_feats = self.dcmixer_fc_out(motion_feats)  
 
-        return motion_feats , xs
+        return motion_feats + xs , xs
 
 
 class Embedding_FC(nn.Module):
