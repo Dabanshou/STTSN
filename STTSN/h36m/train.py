@@ -117,7 +117,7 @@ def train_step(h36m_motion_input, h36m_motion_target, model, optimizer, nb_iter,
         h36m_motion_input_delta = torch.tensor(h36m_motion_input_delta)
 
     motion_pred, increment = model(h36m_motion_input_.cuda(), h36m_motion_input_delta.cuda())
-    motion_pred = torch.matmul(idct_m[:, :config.motion.h36m_input_length, :],  motion_pred) + increment
+    motion_pred = torch.matmul(idct_m[:, :config.motion.h36m_input_length, :],  motion_pred) 
 
     if config.deriv_output:
         offset = h36m_motion_input[:, -1:].cuda()
